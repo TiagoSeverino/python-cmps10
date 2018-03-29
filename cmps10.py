@@ -7,11 +7,11 @@ class CMPS10():
 	CMPS10_BEARING = 1
 	CMPS10_DEGBEAR = 2
 	CMPS10_DEGBEAR1 = 3
-	CMPS10_PICH = 4
+	CMPS10_PITCH = 4
 	CMPS10_ROLL = 5
-	
+
 	CMPS10_REGADDR = 22
-	
+
 	def __init__(self, address=0x60, bus_num=1):
 		self.bus_num = bus_num
 		self.address = address
@@ -38,17 +38,17 @@ class CMPS10():
 		bear = self.read_reg(self.CMPS10_BEARING)
 		return bear #Compass Bearing as a byte, i.e. 0-255 for a full circle
 
-	def bearing3599(self):  
+	def bearing3599(self):
 		bear1 = self.read_reg(self.CMPS10_DEGBEAR)
 		bear2 = self.read_reg(self.CMPS10_DEGBEAR1)
 		bear = (bear1 << 8) + bear2
 		bear = bear/10.0
 		return bear #Compass Bearing as a word, i.e. 0-3599 for a full circle, representing 0-359.9 degrees.
 
-	def pich(self):
-		pich = self.read_reg(self.CMPS10_PICH)
-		return pich
-	
+	def pitch(self):
+		pitch = self.read_reg(self.CMPS10_PITCH)
+		return pitch
+
 	def roll(self):
 		roll = self.read_reg(self.CMPS10_ROLL)
 		return roll
