@@ -73,9 +73,9 @@ class CMPS10():
 		print "Sucessfully Calibrated!"
 
 
-	def changeAdress(self, newAddr):
+	def changeAddress(self, newAddr):
 		"""
-		ID | Adress
+		ID | Address
 		0	 0xC0
 		1	 0xC2
 		2	 0xC4
@@ -86,12 +86,12 @@ class CMPS10():
 		7	 0xCE
 		"""
 
-		adresses = [0xC0, 0xC2, 0xC4, 0xC6, 0xC8, 0xCA, 0xCC, 0xCE]
+		addresses = [0xC0, 0xC2, 0xC4, 0xC6, 0xC8, 0xCA, 0xCC, 0xCE]
 
 		self.write_reg(self.CMPS10_REGADDR, 0xA0)
 		self.write_reg(self.CMPS10_REGADDR, 0xAA)
 		self.write_reg(self.CMPS10_REGADDR, 0xA5)
-		self.write_reg(self.CMPS10_REGADDR, adresses[newAddr])
+		self.write_reg(self.CMPS10_REGADDR, addresses[newAddr])
 
 	def factoryReset(self):
 		self.write_reg(self.CMPS10_REGADDR, 0x20)

@@ -4,7 +4,7 @@ compass = CMPS10()
 
 compass.factoryReset()
 #compass.calibrate()
-#compass.changeAdress(0)
+#compass.changeAddress(0)
 
 print "Version ",  compass.softwareVersion()
 print "Bearing(255) ", compass.bearing255()
